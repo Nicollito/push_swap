@@ -1,4 +1,6 @@
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re
+
+MAKEFLAGS += --no-print-directory
 
 NAME = libft.a
 
@@ -39,9 +41,8 @@ SRCS =	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-
-BSRCS =	ft_lstnew.c \
+		ft_putnbr_fd.c \
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -51,33 +52,31 @@ BSRCS =	ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-BOBJS = $(BSRCS:.c=.o)
+OBJ_DIR = obj
 
-all : $(NAME)
+all : $(OBJ_DIR) $(NAME)
 
-%.o : %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR) :
+	@mkdir -p $@
+
+$(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS)
+	@echo "🎊 Librairie créée 🥳"
 	
-bonus : .bonus
-
-.bonus : $(NAME) $(BOBJS)
-	ar -rcs $(NAME) *.o
-	touch .bonus
-
 clean : 
-	rm -rf $(OBJS)
-	rm -rf $(BOBJS)
+	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean : 
-	$(MAKE) clean
-	rm -rf $(NAME)
-	rm -rf .bonus
+	@$(MAKE) clean
+	@rm -rf $(NAME)
+	@echo "🫧🧽 Libft toute propre ELLE !! 🧽🫧"
 
 re : 
-	$(MAKE) fclean 
-	$(MAKE) all
+	@$(MAKE) fclean 
+	@$(MAKE) all
