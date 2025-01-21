@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_instrctions.c                                 :+:      :+:    :+:   */
+/*   sort_instructions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,67 +12,56 @@
 
 #include "push_swap.h"
 
-char	*swap_a(s_stack *stack_a)
+char	*swap(s_stack **stack, char which)
 {
 	int		tmp;
+	s_stack	*current;
 	s_stack	*next;
 
-	if (!stack_a || !stack_a->next)
-		return (NULL);
-	next = stack_a->next;
-	tmp = stack_a->number;
-	stack_a->number = next->number;
+	current = stack[0];
+	if (which == 'b')
+		current = stack[1];
+	next = current->next;
+	tmp = current->number;
+	current->number = next->number;
 	next->number = tmp;
+	if (which == 'b')
+		return ("sb");
 	return ("sa\n");
-}
-
-char	*swap_b(s_stack *stack_b)
-{
-	int		tmp;
-	s_stack	*next;
-
-	if (!stack_b || !stack_b->next)
-		return (NULL);
-	next = stack_b->next;
-	tmp = stack_b->number;
-	stack_b->number = next->number;
-	next->number = tmp;
-	return ("sb\n");
 }
 
 char	*ss(s_stack **stack)
 {
-	swap_a(stack[0]);
-	swap_b(stack[1]);
+	swap(stack, 'a');
+	swap(stack, 'b');
 	return ("ss\n");
-}
+} 
 
-char	*push_a(s_stack **stack)
+char	*push(s_stack **stack, char which)
 {
-	s_stack	*new;
-	s_stack	*old;
+	s_stack	*src;
+	s_stack	*dest;
+	s_stack	*tmp;
 
-	if (!stack[1])
+	src = stack[0];
+	dest = stack[1];
+	if (which == 'b')
+	{
+		src = stack[1];
+		dest = stack[0];
+	}
+	if (!dest)
 		return (NULL);
-	old = stack[1];
-	stack[1] = stack[1]->next;
-	new->number = old->number;
-	free(old);
-	new->next = stack[0];
-	return ("pa\n");
-}
-
-char	*push_b(s_stack **stack)
-{
-	s_stack	*new;
-	s_stack	*old;
-
-	if (!stack[0])
-		return (NULL);
-	old = stack[0];
-	stack[0] = stack[0]->next;
-	new->number = old->number;
-	free(old);
-	new->next = stack[1];
+	tmp = dest;
+	dest = dest->next;
+	tmp->next = src;
+	if (which == 'a')
+	{
+		stack[0] = tmp;
+		stack[1] = dest;
+		return ("pa\n");
+	}
+	stack[1] = tmp;
+	stack[0] = dest;
 	return ("pb\n");
 }

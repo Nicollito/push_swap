@@ -6,31 +6,41 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:42:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/20 14:53:44 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:25:21 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*rotate(s_stack *stack, char which)
+char	*rotate(s_stack **stack, char which)
 {
+	s_stack	*start;
 	s_stack	*last;
+	s_stack	*current;
 
-	last->number = stack->number;
+	current = stack[0];
+	if (which == 'b')
+		current = stack[1];
+	start = current->next;
+	last = current;
+	while (current->next)
+		current = current->next;
+	current->next = last;
 	last->next = NULL;
-	while (stack->next)
-		stack = stack->next;
-	stack->next = last;
 	if (which == 'a')
-		return("ra");
-	return("rb");
+	{
+		stack[0] = start;
+		return("ra\n");
+	}
+	stack[1] = start;
+	return ("rb\n");
 }
 
 char	*rr(s_stack **stack)
 {
-	rotate(stack[0], 'a');
-	rotate(stack[1], 'b');
-	return("rr");
+	rotate(stack, 'a');
+	rotate(stack, 'b');
+	return ("rr\n");
 }
 
 char	*reverse_rotate(s_stack **stack, char which)
@@ -39,9 +49,8 @@ char	*reverse_rotate(s_stack **stack, char which)
 	s_stack	*current;
 	s_stack	*s_next;
 
-	if (which == 'a')
-		current = stack[0];
-	else if (which == 'b')
+	current = stack[0];
+	if (which == 'b')
 		current = stack[1];
 	start = current;
 	s_next = current->next;
@@ -57,15 +66,13 @@ char	*reverse_rotate(s_stack **stack, char which)
 		stack[0] = s_next;
 		return("rra");
 	}
-	else if (which == 'b')
-	{
-		stack[1] = s_next;
-		return("rrb");
-	}
+	stack[1] = s_next;
+	return ("rrb\n");
 }
 
-/* char	*rrr(s_stack **stack)
+char	*rrr(s_stack **stack)
 {
-	NTM
+	reverse_rotate(stack, 'a');
+	reverse_rotate(stack, 'b');
+	return ("rrr\n");
 }
- */
