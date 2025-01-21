@@ -31,7 +31,7 @@ check-build : $(OBJS) $(LIB)
 	if [ $$need_rebuild -eq 1 ]; then \
 		$(MAKE) real-all; \
 	else \
-		echo "🕵️‍♀️ Pas de relink, tout est déjà compilé 🕵️‍♀️"; \
+		echo "🕵️  Pas de relink, tout est déjà compilé 🕵️"; \
 	fi
 
 real-all : $(OBJ_DIR) $(NAME)
