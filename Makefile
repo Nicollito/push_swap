@@ -6,11 +6,14 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -g
 
 SRCS =	sort_instructions.c\
 		sort_instructions_2.c\
-		main_test.c
+		fill_digit_tab.c\
+		create_stack.c\
+		main.c\
+		utils.c\
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -18,12 +21,12 @@ OBJ_DIR = obj
 
 LIB = libft/libft.a
 
-all : check-build
+all : check-libft check-build
 
 check-build : $(OBJS) $(LIB)
 	@need_rebuild=0; \
 	for file in $^; do \
-		if [ ! -f $(NAME) ] || [ $(NAME) -ot $$file ]; then \
+		if [ ! -f $(NAME) ] || [ $(NAME) -ot $$file ] || [ -n "$$(find libft -name "*.c" -newer $(LIB))" ]; then \
 			need_rebuild=1; \
 			break; \
 		fi; \
@@ -34,7 +37,12 @@ check-build : $(OBJS) $(LIB)
 		echo "🕵️  Pas de relink, tout est déjà compilé 🕵️"; \
 	fi
 
-real-all : $(OBJ_DIR) $(NAME)
+check-libft:
+	@if [ -n "$$(find libft -type f -newer $(LIB))" ]; then \
+		$(MAKE) call-libft; \
+	fi
+
+real-all : $(LIB) $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR) :
 	@mkdir -p $@
@@ -44,11 +52,12 @@ $(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
 
 $(NAME) : $(OBJS) $(LIB)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)
-	@echo "🎊 Programme compilé 🥳"
+	@echo "🎊🥳 Programme compilé 🥳🎊"
 
-$(LIB) :
+call-libft : $(LIB)
 	@echo "🎶📳 Appel libft 📳🎶"
 	@$(MAKE) -C libft
+	@touch $(LIB)
 
 clean : 
 	@rm -rf $(OBJ_DIR)

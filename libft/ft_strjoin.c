@@ -6,30 +6,35 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:25:04 by nimadela          #+#    #+#             */
-/*   Updated: 2024/11/21 14:51:38 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:16:53 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	char	*res;
+	char	*free_s1;
 
 	if (!s1)
-		return ((char *)s2);
+		return (ft_strdup(s2));
 	if (!s2)
 		return ((char *)s1);
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	free_s1 = s1;
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
 	if (!str)
 		return (NULL);
 	res = str;
 	while (*s1)
 		*str++ = *s1++;
+	if (s1)
+		*str++ = ' ';
 	while (*s2)
 		*str++ = *s2++;
 	*str = '\0';
+	free(free_s1);
 	return (res);
 }
 /* #include <stdio.h>

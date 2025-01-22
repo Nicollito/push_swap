@@ -6,7 +6,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -g
 
 SRCS =	ft_isalpha.c \
 		ft_isdigit.c \
