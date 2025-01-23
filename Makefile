@@ -21,7 +21,7 @@ OBJ_DIR = obj
 
 LIB = libft/libft.a
 
-all : check-libft check-build
+all : $(LIB) check-libft check-build
 
 check-build : $(OBJS) $(LIB)
 	@need_rebuild=0; \
@@ -54,7 +54,10 @@ $(NAME) : $(OBJS) $(LIB)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)
 	@echo "🎊🥳 Programme compilé 🥳🎊"
 
-call-libft : $(LIB)
+$(LIB) :
+	@$(MAKE) call-libft
+
+call-libft : 
 	@echo "🎶📳 Appel libft 📳🎶"
 	@$(MAKE) -C libft
 	@touch $(LIB)

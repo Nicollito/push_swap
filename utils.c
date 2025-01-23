@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:40:09 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/22 17:08:28 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:59:17 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_int_tab(int *tab, int len)
 	}
 }
 
-void	print_stack(s_stack *stack)
+void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{

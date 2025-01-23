@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/22 17:01:32 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:05:43 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	count_number(char *str)
 {
-	int i;
-	int val;
+	int	i;
+	int	val;
 
 	i = 0;
 	val = 0;
