@@ -1,4 +1,4 @@
-.PHONY : all real-all check-build clean fclean re
+.PHONY : all real-all check-build check-libft clean fclean re
 
 MAKEFLAGS += --no-print-directory
 
@@ -8,7 +8,8 @@ CC = cc
 
 CFLAGS = -Werror -Wextra -Wall -g
 
-SRCS =	sort_instructions.c\
+SRCS =	push_swap.c\
+		sort_instructions.c\
 		sort_instructions_2.c\
 		fill_digit_tab.c\
 		create_stack.c\
@@ -52,7 +53,7 @@ $(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
 
 $(NAME) : $(OBJS) $(LIB)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)
-	@echo "🎊🥳 Programme compilé 🥳🎊"
+	@echo "🎊🥳 Programme compilé 🥳🎊"                                                                                                                   
 
 $(LIB) :
 	@$(MAKE) call-libft

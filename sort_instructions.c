@@ -6,42 +6,42 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:31:35 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 10:02:57 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:11:48 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*swap(t_stack **stack, char which)
+char	*swap(t_list **stack, char which)
 {
 	int		tmp;
-	t_stack	*current;
-	t_stack	*next;
+	t_list	*current;
+	t_list	*next;
 
 	current = stack[0];
 	if (which == 'b')
 		current = stack[1];
 	next = current->next;
-	tmp = current->number;
-	current->number = next->number;
-	next->number = tmp;
+	tmp = current->content;
+	current->content = next->content;
+	next->content = tmp;
 	if (which == 'b')
 		return ("sb");
 	return ("sa\n");
 }
 
-char	*ss(t_stack **stack)
+char	*ss(t_list **stack)
 {
 	swap(stack, 'a');
 	swap(stack, 'b');
 	return ("ss\n");
 }
 
-char	*push(t_stack **stack, char which)
+char	*push(t_list **stack, char which)
 {
-	t_stack	*src;
-	t_stack	*dest;
-	t_stack	*tmp;
+	t_list	*src;
+	t_list	*dest;
+	t_list	*tmp;
 
 	src = stack[0];
 	dest = stack[1];

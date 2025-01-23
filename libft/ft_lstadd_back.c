@@ -6,21 +6,21 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:57:57 by nimadela          #+#    #+#             */
-/*   Updated: 2024/11/25 10:56:26 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:03:09 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new, int which)
 {
-	t_list	**temp;
+	t_list	*temp;
 
-	if (!*lst)
+	if (!lst[which])
 	{
-		*lst = new;
+		lst[which] = new;
 		return ;
 	}
-	temp = lst;
-	ft_lstlast(*temp)-> next = new;
+	temp = lst[which];
+	ft_lstlast(temp)-> next = new;
 }

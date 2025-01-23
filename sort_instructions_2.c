@@ -6,17 +6,17 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:42:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 10:03:26 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:11:08 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*rotate(t_stack **stack, char which)
+char	*rotate(t_list **stack, char which)
 {
-	t_stack	*start;
-	t_stack	*last;
-	t_stack	*current;
+	t_list	*start;
+	t_list	*last;
+	t_list	*current;
 
 	current = stack[0];
 	if (which == 'b')
@@ -36,18 +36,18 @@ char	*rotate(t_stack **stack, char which)
 	return ("rb\n");
 }
 
-char	*rr(t_stack **stack)
+char	*rr(t_list **stack)
 {
 	rotate(stack, 'a');
 	rotate(stack, 'b');
 	return ("rr\n");
 }
 
-char	*reverse_rotate(t_stack **stack, char which)
+char	*reverse_rotate(t_list **stack, char which)
 {
-	t_stack	*start;
-	t_stack	*current;
-	t_stack	*s_next;
+	t_list	*start;
+	t_list	*current;
+	t_list	*s_next;
 
 	current = stack[0];
 	if (which == 'b')
@@ -70,7 +70,7 @@ char	*reverse_rotate(t_stack **stack, char which)
 	return ("rrb\n");
 }
 
-char	*rrr(t_stack **stack)
+char	*rrr(t_list **stack)
 {
 	reverse_rotate(stack, 'a');
 	reverse_rotate(stack, 'b');
