@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:42:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 11:11:08 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:59:54 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*reverse_rotate(t_list **stack, char which)
 	if (which == 'a')
 	{
 		stack[0] = s_next;
-		return ("rra");
+		return ("rra\n");
 	}
 	stack[1] = s_next;
 	return ("rrb\n");

@@ -66,7 +66,7 @@ $(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
 
 $(NAME) : $(OBJS)
 	@ar -rcs $(NAME) $(OBJS)
-	@echo "🎊 Librairie créée 🥳"
+	@echo "🎊🥳 Librairie créée 🥳🎊"
 	
 clean : 
 	@rm -rf $(OBJS)
@@ -75,7 +75,7 @@ clean :
 fclean : 
 	@$(MAKE) clean
 	@rm -rf $(NAME)
-	@echo "🫧🧽 Libft toute propre ELLE !! 🧽🫧"
+	@echo "🫧🧽 Libft toute propre, ELLE !! 🧽🫧"
 
 re : 
 	@$(MAKE) fclean 

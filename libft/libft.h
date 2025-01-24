@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:39:22 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 14:46:27 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:03:03 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_list
 {
-	int			content;
+	int				content;
 	struct s_list	*next;
 }					t_list;
 

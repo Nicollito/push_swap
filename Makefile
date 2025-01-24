@@ -13,6 +13,8 @@ SRCS =	push_swap.c\
 		sort_instructions_2.c\
 		fill_digit_tab.c\
 		create_stack.c\
+		algo_utils.c\
+		algorithme.c\
 		main.c\
 		utils.c\
 

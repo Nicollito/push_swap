@@ -6,21 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:46:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 13:36:22 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:20:50 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	init_stack(t_list **stack, int number, int which)
-{
-	// t_list	*node;
-
-/* 	node = create_node(number);
-	node->next = stack[which];
-	stack[which] = node; */
-	ft_lstadd_back(stack, create_node(number), which);
-}
 
 t_list	*create_node(int number)
 {
@@ -41,7 +31,7 @@ void	fill_stack(t_list **stack, int *digit_array, int len)
 	i = 0;
 	while (i < len)
 	{
-		init_stack(stack, digit_array[i], 0);
+		ft_lstadd_back(stack, create_node(digit_array[i]), 0);
 		i++;
 	}
 }
@@ -68,4 +58,34 @@ t_list	**create_and_fill_stack(t_list **stack, int ac, char **av)
 	fill_stack(stack, digit_array, len);
 	free(digit_array);
 	return (stack);
+}
+
+int	stack_len(t_list *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*stack_to_free;
+
+	while (stack[1])
+	{
+		push(stack, 'a');
+	}
+	while (stack[0])
+	{
+		stack_to_free = stack[0];
+		stack[0] = stack[0]->next;
+		free(stack_to_free);
+	}
+	free(stack);
 }

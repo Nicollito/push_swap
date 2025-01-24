@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 10:05:43 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:58:11 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	*fill_digit_array(char *str, int *digit_array, int len)
 	{
 		digit_array[j++] = ft_atoi(&str[i]);
 		i++;
+		if (str[i] == '-')
+			i++;
 		while (ft_isdigit(str[i]))
 			i++;
 	}
