@@ -1,0 +1,7 @@
+# Ignorer des fichiers spécifiques
+checker_linux
+push_swap
+libft.a
+
+# Ignorer tous les ficher objet
+obj/

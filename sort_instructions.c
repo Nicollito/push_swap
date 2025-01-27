@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:31:35 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/23 11:11:48 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 09:25:20 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*swap(t_list **stack, char which)
 	current->content = next->content;
 	next->content = tmp;
 	if (which == 'b')
-		return ("sb");
+		return ("sb\n");
 	return ("sa\n");
 }
 

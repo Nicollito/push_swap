@@ -15,7 +15,6 @@ SRCS =	push_swap.c\
 		create_stack.c\
 		algo_utils.c\
 		algorithme.c\
-		main.c\
 		utils.c\
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
