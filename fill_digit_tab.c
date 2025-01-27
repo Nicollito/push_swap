@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 13:24:49 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:52:47 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ char	*fill_str(int ac, char **av, char *str)
 		str = ft_strdup(av[1]);
 		if (!str)
 			return (NULL);
+	}
+	if (!check_if_isdigit(str))
+	{
+		write(2, "Error\n", 6);
+		free(str);
+		exit(1);
 	}
 	return (str);
 }

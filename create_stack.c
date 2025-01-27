@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:46:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/24 13:20:50 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:44:10 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_list	**create_and_fill_stack(t_list **stack, int ac, char **av)
 	len = count_number(str);
 	digit_array = fill_digit_array(str, digit_array, len);
 	free(str);
+	same_in_digit(digit_array, len);
 	stack = malloc(sizeof(t_list) * 2);
 	stack[0] = NULL;
 	stack[1] = NULL;
