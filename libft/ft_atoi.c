@@ -6,13 +6,13 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:53:30 by nimadela          #+#    #+#             */
-/*   Updated: 2024/11/15 15:07:20 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:45:24 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
 	int					sign;
 	unsigned long long	res;
@@ -28,12 +28,6 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	while (*nptr && (*nptr >= '0' && *nptr <= '9'))
-	{
 		res = res * 10 + (*nptr++ - '0');
-		if (res > __LONG_LONG_MAX__ && sign < 0)
-			return (0);
-		if (res > __LONG_LONG_MAX__)
-			return (-1);
-	}
-	return (((int)res) * sign);
+	return ((long int)res * sign);
 }

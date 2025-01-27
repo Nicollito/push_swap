@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:22:59 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/24 18:52:51 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:27:26 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*found_min(t_list *stack)
 	while (stack)
 	{
 		stack = stack->next;
-		if (stack && min->content < stack->content)
+		if (stack && min->content > stack->content)
 			min = stack;
 	}
 	return (min);

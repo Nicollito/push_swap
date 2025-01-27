@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:57:22 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 09:27:05 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:57:49 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,12 @@ void	sort_4_and_5(t_list **stack)
 	if (stack_len(stack[0]) == 3)
 		sort_3_nbr(stack);
 	switch_to_b(stack);
-	if (stack_len(stack[0]) == 4)
+	if (stack_len(stack[0]) == 4 && !check_sort(stack[0]))
 		switch_to_b(stack);
-	sort_3_nbr(stack);
-	if (stack[1]->next && stack[1]->content > (stack[1]->next)->content)
+	if (!check_sort(stack[0]))
+		sort_3_nbr(stack);
+	if (stack[1]->next && stack[1]->content < (stack[1]->next)->content)
 		write(1, swap(stack, 'b'), 3);
 	while (stack[1])
-	{
 		write(1, push(stack, 'a'), 3);
-		write(1, rotate(stack, 'a'), 3);
-	}
 }

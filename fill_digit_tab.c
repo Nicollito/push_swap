@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/24 10:58:11 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:24:49 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,24 @@ int	count_number(char *str)
 
 int	*fill_digit_array(char *str, int *digit_array, int len)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
+	long int	checker;
 
 	i = 0;
 	j = 0;
 	digit_array = malloc(sizeof(int) * len);
 	while (str[i])
 	{
-		digit_array[j++] = ft_atoi(&str[i]);
+		checker = ft_atoi(&str[i]);
+		if (checker > INT_MAX || checker < INT_MIN)
+		{
+			write(2, "Error\n", 6);
+			free(str);
+			free(digit_array);
+			exit(1);
+		}
+		digit_array[j++] = (int)checker;
 		i++;
 		if (str[i] == '-')
 			i++;

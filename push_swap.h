@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/24 17:44:06 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:22:08 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ t_list	*found_min(t_list *stack);
 int		found_worth(t_list	*stack, t_list *min);
 void	switch_to_b(t_list **stack);
 int		check_sort(t_list *stack);
+int		check_if_isdigit(char *str);
 
 #endif
