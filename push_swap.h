@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 19:43:53 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:07:51 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+typedef struct descriptive_statistics
+{
+	int	mean;
+	int	quart1;
+	int	quart3;
+}		t_stat;
 
 char	*swap(t_list **stack, char which);
 char	*ss(t_list **stack);
@@ -34,10 +41,13 @@ void	sort_4_and_5(t_list **stack);
 int		stack_len(t_list *stack);
 void	free_stack(t_list **stack);
 t_list	*found_min(t_list *stack);
+t_list	*found_max(t_list *stack);
 int		found_worth(t_list	*stack, t_list *min);
 void	switch_to_b(t_list **stack);
 int		check_sort(t_list *stack);
 int		check_if_isdigit(char *str);
 void	same_in_digit(int *digit_array, int len);
+void	calc_stat(t_stat *stat, t_list *stack);
+void	sort_to_b(t_list **stack, t_stat *stat);
 
 #endif

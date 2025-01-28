@@ -14,7 +14,9 @@ SRCS =	push_swap.c\
 		fill_digit_tab.c\
 		create_stack.c\
 		algo_utils.c\
-		algorithme.c\
+		algo_utils_2.c\
+		algorithm.c\
+		big_algo.c\
 		parsing.c\
 		utils.c\
 
