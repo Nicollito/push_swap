@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/28 13:07:51 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/30 10:56:32 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,16 @@ int		stack_len(t_list *stack);
 void	free_stack(t_list **stack);
 t_list	*found_min(t_list *stack);
 t_list	*found_max(t_list *stack);
-int		found_worth(t_list	*stack, t_list *min);
+int		found_worth(t_list	*stack, t_list *to_move);
 void	switch_to_b(t_list **stack);
 int		check_sort(t_list *stack);
 int		check_if_isdigit(char *str);
 void	same_in_digit(int *digit_array, int len);
 void	calc_stat(t_stat *stat, t_list *stack);
+void	sort_to_a(t_list **stack);
 void	sort_to_b(t_list **stack, t_stat *stat);
+int		verif_quart(t_stat *stat, t_list *stack);
+void	big_sort(t_list **stack);
+int	count_rotate_a(t_list *stack_a, t_list *stack_b);
 
 #endif

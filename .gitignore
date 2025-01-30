@@ -5,3 +5,6 @@ libft.a
 
 # Ignorer tous les ficher objet
 obj/
+
+# Ignore le visualiseur
+visu/

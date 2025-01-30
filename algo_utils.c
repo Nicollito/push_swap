@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:22:59 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/28 13:08:31 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/30 09:48:08 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ t_list	*found_max(t_list *stack)
 	return (max);
 }
 
-int	found_worth(t_list	*stack, t_list *min)
+int	found_worth(t_list	*stack, t_list *to_move)
 {
 	int	len;
-	int	min_place;
+	int	place;
 
 	len = stack_len(stack);
-	min_place = 0;
-	while (stack != min)
+	place = 0;
+	while (stack != to_move)
 	{
 		stack = stack->next;
-		min_place++;
+		place++;
 	}
-	if (min_place > len / 2)
+	if (place > len / 2)
 		return (1);
 	return (0);
 }

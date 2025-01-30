@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:37:51 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/28 15:22:19 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:04:35 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(int ac, char **av)
 {
 	t_list	**stack;
-	t_stat	*stat;
+	// t_stat	*stat;
 
 	stack = NULL;
 	stack = create_and_fill_stack(stack, ac, av);
@@ -25,17 +25,30 @@ int	main(int ac, char **av)
 	if ((stack_len(stack[0]) <= 5 && stack_len(stack[0]) >= 3)
 		&& !check_sort(stack[0]))
 		sort_4_and_5(stack);
-	stat = malloc(sizeof(t_stat));
-	while (stack_len(stack[0]) > 3)
-	{
-		calc_stat(stat, stack[0]);
-		sort_to_b(stack, stat);
-	}
-	printf("stack a :\n");
-	print_stack(stack[0]);
-	printf("\nstack b :\n");
+	big_sort(stack);
 	print_stack(stack[1]);
-	free(stat);
 	free_stack(stack);
 	return (1);
+}
+
+void	big_sort(t_list **stack)
+{
+	t_stat	*stat;
+
+	stat = malloc(sizeof(t_stat));
+	if (!stat)
+	{
+		free_stack(stack);
+		exit(1);
+	}
+	calc_stat(stat, stack[0]);
+	while (stack_len(stack[0]) > 3)
+	{
+		sort_to_b(stack, stat);
+	}
+	if (stack_len(stack[0]) == 3 && !check_sort(stack[0]))
+		sort_3_nbr(stack);
+	while (stack[1])
+		sort_to_a(stack);
+	free(stat);
 }
