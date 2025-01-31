@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/30 10:56:32 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:43:13 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void	sort_to_a(t_list **stack);
 void	sort_to_b(t_list **stack, t_stat *stat);
 int		verif_quart(t_stat *stat, t_list *stack);
 void	big_sort(t_list **stack);
-int	count_rotate_a(t_list *stack_a, t_list *stack_b);
+int		count_rotate_a(t_list *stack_a, t_list *stack_b);
+void	push_max_b_to_a(t_list **stack);
+int		found_node_place(t_list *stack, t_list *to_find);
+void	set_a(t_list **stack);
 
 #endif

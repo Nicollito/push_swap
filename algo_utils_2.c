@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:06:06 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/30 17:13:21 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:31:46 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	calc_stat(t_stat *stat, t_list *stack)
 int	verif_quart(t_stat *stat, t_list *stack)
 {
 	while (stack && (stack->content < stat->quart1
-		|| stack->content > stat->quart3))
+			|| stack->content > stat->quart3))
 		stack = stack->next;
 	if (stack)
 		return (1);
@@ -32,23 +32,70 @@ int	verif_quart(t_stat *stat, t_list *stack)
 int	count_rotate_a(t_list *stack_a, t_list *stack_b)
 {
 	int	i;
+	int	res;
 	int	len;
 
 	i = 0;
+	res = 0;
 	len = stack_len(stack_a);
-	if (stack_b->content < stack_a->content)
+	if (stack_b->content < found_min(stack_a)->content)
+		res = found_node_place(stack_a, found_max(stack_a)) + 1;
+	if (stack_b->content < stack_a->content
+		&& stack_b->content > ft_lstlast(stack_a)->content)
 		return (0);
-	while (stack_a->next)
+	while (stack_a->next && !res)
 	{
-		if (stack_b->content > stack_a->content &&
-			stack_b->content < (stack_a->next)->content)
-			break;
+		i++;
+		if (stack_b->content > stack_a->content
+			&& stack_b->content < (stack_a->next)->content)
+			res = i;
 		stack_a = stack_a->next;
+	}
+	if (!stack_a->next && !res)
+		return (-1);
+	if (res > len / 2)
+		return (res - len);
+	return (res);
+}
+
+void	push_max_b_to_a(t_list **stack)
+{
+	t_list	*max;
+	int		i;
+	int		len;
+
+	max = stack[1];
+	i = 0;
+	while (max != found_max(stack[1]) && ++i)
+		max = max->next;
+	len = stack_len(stack[1]);
+	if (i > len / 2)
+		i = i - len;
+	while (i != 0)
+	{
+		if (i <= 0)
+		{
+			write(1, reverse_rotate(stack, 'b'), 4);
+			i++;
+		}
+		else if (i >= 0)
+		{
+			write(1, rotate(stack, 'b'), 3);
+			i--;
+		}
+	}
+	write(1, push(stack, 'a'), 3);
+}
+
+int	found_node_place(t_list *stack, t_list *to_find)
+{
+	int	i;
+
+	i = 0;
+	while (stack != to_find)
+	{
+		stack = stack->next;
 		i++;
 	}
-	if (!stack_a->next)
-		return (-1);
-	if (i > len / 2)
-		return (i - len);
 	return (i);
 }
