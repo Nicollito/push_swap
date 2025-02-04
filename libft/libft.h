@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:39:22 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 10:46:26 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:47:49 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,19 @@
 # include <limits.h>
 # include <unistd.h>
 
+typedef struct rotate
+{
+	int		ra;
+	int		rra;
+	int		rb;
+	int		rrb;
+}		t_rt;
+
 typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	t_rt			rot;
 }					t_list;
 
 void		ft_bzero(void *s, size_t n);

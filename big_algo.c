@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:44:04 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/31 15:32:19 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:01:15 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,63 @@ void	sort_to_b(t_list **stack, t_stat *stat)
 
 void	sort_to_a(t_list **stack)
 {
-	int	i;
+	t_list	*to_push;
 
 	if (found_max(stack[0])->content < found_max(stack[1])->content)
 		push_max_b_to_a(stack);
-	i = count_rotate_a(stack[0], stack[1]);
-	while (i != 0)
-	{
-		if (i < 0)
-		{
-			write(1, reverse_rotate(stack, 'a'), 4);
-			i++;
-		}
-		else
-		{
-			write(1, rotate(stack, 'a'), 3);
-			i--;
-		}
-	}
+	set_rot(stack, stack[1]);
+	to_push = node_to_push(stack);
+	set_b_to_push(stack, to_push);
+	push_to_a(stack);
 	write(1, push(stack, 'a'), 3);
+}
+
+void	push_to_a(t_list **stack)
+{
+	int	nb_rot;
+	int	reverse;
+
+	reverse = 0;
+	nb_rot = 0;
+	if (stack[1]->rot.rra == -1)
+		nb_rot = stack[1]->rot.ra;
+	else if (stack[1]->rot.ra == -1)
+	{
+		reverse = -1;
+		nb_rot = stack[1]->rot.rra;
+	}
+	while (nb_rot)
+	{
+		if (!reverse)
+			write(1, rotate(stack, 'a'), 3);
+		else
+			write(1, reverse_rotate(stack, 'a'), 4);
+		nb_rot--;
+	}
+}
+
+void	set_b_to_push(t_list **stack, t_list *to_push)
+{
+	int	nb_rot;
+	int	reverse;
+
+	reverse = 0;
+	nb_rot = 0;
+	if (to_push->rot.rrb == -1)
+		nb_rot = to_push->rot.rb;
+	else if (to_push->rot.rb == -1)
+	{
+		nb_rot = to_push->rot.rrb;
+		reverse = -1;
+	}
+	while (nb_rot)
+	{
+		if (!reverse)
+			write(1, rotate(stack, 'b'), 3);
+		else 
+			write(1, reverse_rotate(stack, 'b'), 4);
+		nb_rot--;
+	}
 }
 
 void	set_a(t_list **stack)

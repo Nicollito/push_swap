@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:37:51 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/31 15:23:53 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:31:34 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int ac, char **av)
 	t_list	**stack;
 
 	stack = NULL;
+	if (ac == 1)
+		return (write(1, "\n", 1));
 	stack = create_and_fill_stack(stack, ac, av);
 	if (stack_len(stack[0]) == 2 && !check_sort(stack[0]))
 		write(1, swap(stack, 'a'), 3);

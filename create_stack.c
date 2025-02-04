@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:46:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 19:44:10 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:31:13 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	stack_len(t_list *stack)
 	return (i);
 }
 
-void	free_stack(t_list **stack)
+int	free_stack(t_list **stack)
 {
 	t_list	*stack_to_free;
 
@@ -89,4 +89,5 @@ void	free_stack(t_list **stack)
 		free(stack_to_free);
 	}
 	free(stack);
+	return (1);
 }

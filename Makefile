@@ -15,6 +15,8 @@ SRCS =	push_swap.c\
 		create_stack.c\
 		algo_utils.c\
 		algo_utils_2.c\
+		algo_utils_3.c\
+		algo_utils_4.c\
 		algorithm.c\
 		big_algo.c\
 		parsing.c\
