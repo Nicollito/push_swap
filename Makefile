@@ -8,6 +8,8 @@ CC = cc
 
 CFLAGS = -Werror -Wextra -Wall -g
 
+HEADER = push_swap.h
+
 SRCS =	push_swap.c\
 		sort_instructions.c\
 		sort_instructions_2.c\
@@ -20,6 +22,7 @@ SRCS =	push_swap.c\
 		algorithm.c\
 		big_algo.c\
 		parsing.c\
+		all_free.c\
 		utils.c\
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -54,8 +57,8 @@ real-all : $(LIB) $(OBJ_DIR) $(NAME)
 $(OBJ_DIR) :
 	@mkdir -p $@
 
-$(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o : %.c $(HEADER) | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@ -include $(HEADER)
 
 $(NAME) : $(OBJS) $(LIB)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)

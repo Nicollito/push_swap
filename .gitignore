@@ -2,9 +2,12 @@
 checker_linux
 push_swap
 libft.a
+tmp.h
+utils.c
 
 # Ignorer tous les ficher objet
 obj/
 
-# Ignore le visualiseur
+# Ignore les testeurs
 visu/
+complexity/

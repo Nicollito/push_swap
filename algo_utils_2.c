@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:06:06 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/03 13:24:36 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:40:49 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,14 @@ int	count_rotate_a(t_list *stack_a, t_list *stack_b)
 	return (res);
 }
 
-void	push_max_b_to_a(t_list **stack)
+void	push_max_b_to_a(t_list **stack, t_list *stack_b)
 {
-	t_list	*max;
 	int		i;
 	int		len;
 
-	max = stack[1];
 	i = 0;
-	while (max != found_max(stack[1]) && ++i)
-		max = max->next;
+	while (stack_b != found_max(stack[1]) && ++i)
+		stack_b = stack_b->next;
 	len = stack_len(stack[1]);
 	if (i > len / 2)
 		i = i - len;
@@ -85,6 +83,7 @@ void	push_max_b_to_a(t_list **stack)
 		}
 	}
 	write(1, push(stack, 'a'), 3);
+	write(1, rotate(stack, 'a'), 3);
 }
 
 int	found_node_place(t_list *stack, t_list *to_find)

@@ -8,6 +8,8 @@ CC = cc
 
 CFLAGS = -Werror -Wextra -Wall -g
 
+HEADER = libft.h
+
 SRCS =	ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -61,8 +63,8 @@ all : $(OBJ_DIR) $(NAME)
 $(OBJ_DIR) :
 	@mkdir -p $@
 
-$(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o : %.c $(HEADER) | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@ -include $(HEADER)
 
 $(NAME) : $(OBJS)
 	@ar -rcs $(NAME) $(OBJS)

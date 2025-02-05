@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/27 18:52:47 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:00:40 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ int	*fill_digit_array(char *str, int *digit_array, int len)
 	i = 0;
 	j = 0;
 	digit_array = malloc(sizeof(int) * len);
+	if (!digit_array)
+		exit(free_all(str, NULL, NULL, NULL));
 	while (str[i])
 	{
 		checker = ft_atoi(&str[i]);
 		if (checker > INT_MAX || checker < INT_MIN)
 		{
 			write(2, "Error\n", 6);
-			free(str);
-			free(digit_array);
-			exit(1);
+			exit(free_all(str, digit_array, NULL, NULL));
 		}
 		digit_array[j++] = (int)checker;
 		i++;
@@ -72,19 +72,22 @@ char	*fill_str(int ac, char **av, char *str)
 	if (ac > 2)
 	{
 		while (av[i])
+		{
 			str = ft_strjoin(str, av[i++]);
+			if (!str)
+				exit(1);
+		}
 	}
 	else if (ac == 2)
 	{
 		str = ft_strdup(av[1]);
 		if (!str)
-			return (NULL);
+			exit(1);
 	}
 	if (!check_if_isdigit(str))
 	{
 		write(2, "Error\n", 6);
-		free(str);
-		exit(1);
+		exit(free_all(str, NULL, NULL, NULL));
 	}
 	return (str);
 }

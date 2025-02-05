@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:46:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/03 13:31:13 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:37:25 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ t_list	*create_node(int number)
 
 void	fill_stack(t_list **stack, int *digit_array, int len)
 {
-	int	i;
+	int		i;
+	t_list	*node;
 
 	i = 0;
 	while (i < len)
 	{
-		ft_lstadd_back(stack, create_node(digit_array[i]), 0);
+		node = create_node(digit_array[i]);
+		if (!node)
+			exit(free_all(NULL, digit_array, stack, NULL));
+		ft_lstadd_back(stack, node, 0);
 		i++;
 	}
 }
@@ -45,13 +49,13 @@ t_list	**create_and_fill_stack(t_list **stack, int ac, char **av)
 	digit_array = NULL;
 	str = NULL;
 	str = fill_str(ac, av, str);
-	if (!str)
-		return (NULL);
 	len = count_number(str);
 	digit_array = fill_digit_array(str, digit_array, len);
 	free(str);
 	same_in_digit(digit_array, len);
 	stack = malloc(sizeof(t_list) * 2);
+	if (!stack)
+		exit(free_all(NULL, digit_array, NULL, NULL));
 	stack[0] = NULL;
 	stack[1] = NULL;
 	if (!stack)
@@ -72,22 +76,4 @@ int	stack_len(t_list *stack)
 		i++;
 	}
 	return (i);
-}
-
-int	free_stack(t_list **stack)
-{
-	t_list	*stack_to_free;
-
-	while (stack[1])
-	{
-		push(stack, 'a');
-	}
-	while (stack[0])
-	{
-		stack_to_free = stack[0];
-		stack[0] = stack[0]->next;
-		free(stack_to_free);
-	}
-	free(stack);
-	return (1);
 }

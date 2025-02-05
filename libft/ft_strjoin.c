@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:25:04 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/22 15:16:53 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:02:53 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	free_s1 = s1;
 	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
 	if (!str)
+	{
+		free(free_s1);
 		return (NULL);
+	}
 	res = str;
 	while (*s1)
 		*str++ = *s1++;

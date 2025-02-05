@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:37:51 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/04 13:31:34 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:24:19 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ void	big_sort(t_list **stack)
 
 	stat = malloc(sizeof(t_stat));
 	if (!stat)
-	{
-		free_stack(stack);
-		exit(1);
-	}
+		exit(free_stack(stack));
 	calc_stat(stat, stack[0]);
 	while (stack_len(stack[0]) > 3)
 		sort_to_b(stack, stat);
