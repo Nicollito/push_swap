@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:46:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/06 13:02:08 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:12 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 t_list	*create_node(int number)
 {

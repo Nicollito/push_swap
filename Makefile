@@ -8,42 +8,45 @@ CFLAGS = -Werror -Wextra -Wall -g
 HEADER = push_swap.h
 LIB = libft/libft.a
 
-SRCS =	push_swap.c\
-		sort_instructions.c\
-		sort_instructions_2.c\
-		fill_digit_tab.c\
-		create_stack.c\
-		algo_utils.c\
-		algo_utils_2.c\
-		algo_utils_3.c\
-		algo_utils_4.c\
-		algorithm.c\
-		big_algo.c\
-		parsing.c\
-		all_free.c
+SRCS_DIR_PS	= src/my_push_swap
+SRCS =	$(SRCS_DIR_PS)/push_swap.c\
+		$(SRCS_DIR_PS)/sort_instructions.c\
+		$(SRCS_DIR_PS)/sort_instructions_2.c\
+		$(SRCS_DIR_PS)/fill_digit_tab.c\
+		$(SRCS_DIR_PS)/create_stack.c\
+		$(SRCS_DIR_PS)/algo_utils.c\
+		$(SRCS_DIR_PS)/algo_utils_2.c\
+		$(SRCS_DIR_PS)/algo_utils_3.c\
+		$(SRCS_DIR_PS)/algo_utils_4.c\
+		$(SRCS_DIR_PS)/algorithm.c\
+		$(SRCS_DIR_PS)/big_algo.c\
+		$(SRCS_DIR_PS)/parsing.c\
+		$(SRCS_DIR_PS)/all_free.c
 
+OBJ_DIR = obj
 OBJ_DIR_PS = obj/push_swap
-OBJS = $(addprefix $(OBJ_DIR_PS)/, $(SRCS:.c=.o))
+OBJS = $(SRCS:$(SRCS_DIR_PS)/%.c=$(OBJ_DIR_PS)/%.o)
 
 #Début des variables bonus
 
 NAME_BONUS = checker
 HEADER_BONUS = checker.h
 
-SRCS_BONUS = 	checker.c\
-				create_stack.c\
-				fill_digit_tab.c\
-				get_next_line.c\
-				get_next_line_utils.c\
-				sort_instructions.c\
-				sort_instructions_2.c\
-				exec_instr.c\
-				all_free.c\
-				algo_utils.c\
-				parsing.c
+SRCS_DIR_CH	= src/my_checker
+SRCS_BONUS = 	$(SRCS_DIR_CH)/checker.c\
+				$(SRCS_DIR_CH)/create_stack.c\
+				$(SRCS_DIR_CH)/fill_digit_tab.c\
+				$(SRCS_DIR_CH)/get_next_line.c\
+				$(SRCS_DIR_CH)/get_next_line_utils.c\
+				$(SRCS_DIR_CH)/sort_instructions.c\
+				$(SRCS_DIR_CH)/sort_instructions_2.c\
+				$(SRCS_DIR_CH)/exec_instr.c\
+				$(SRCS_DIR_CH)/all_free.c\
+				$(SRCS_DIR_CH)/algo_utils.c\
+				$(SRCS_DIR_CH)/parsing.c
 
 OBJ_DIR_CH = obj/checker
-OBJS_BONUS = $(addprefix $(OBJ_DIR_CH)/, $(SRCS_BONUS:.c=.o))
+OBJS_BONUS = $(SRCS_BONUS:$(SRCS_DIR_CH)/%.c=$(OBJ_DIR_CH)/%.o)
 
 #Fin des variables bonus
 
@@ -73,7 +76,7 @@ real-all : $(LIB) $(OBJ_DIR_PS) $(NAME)
 $(OBJ_DIR_PS) :
 	@mkdir -p $@
 
-$(OBJS) : $(OBJ_DIR_PS)/%.o : %.c $(HEADER) | $(OBJ_DIR_PS) Makefile
+$(OBJS) : $(OBJ_DIR_PS)/%.o : $(SRCS_DIR_PS)/%.c $(HEADER) | $(OBJ_DIR_PS) Makefile
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS) $(LIB) 
@@ -95,7 +98,7 @@ bonus : $(OBJ_DIR_CH) $(LIB)
 $(OBJ_DIR_CH) :
 	@mkdir -p $@
 
-$(OBJS_BONUS) : $(OBJ_DIR_CH)/%.o : %.c $(HEADER) | $(OBJ_DIR_CH)
+$(OBJS_BONUS) : $(OBJ_DIR_CH)/%.o : $(SRCS_DIR_CH)/%.c $(HEADER) | $(OBJ_DIR_CH)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME_BONUS) : $(OBJS_BONUS) $(LIB)
@@ -110,13 +113,14 @@ call-libft :
 	@touch $(LIB)
 
 clean : 
-	@rm -rf $(OBJ_DIR_PS) $(OBJ_DIR_CH)
+	@rm -rf $(OBJ_DIR)
 	@echo "💨🧹 Nettoyage objets 🧹💨"
 
 fclean : 
 	@$(MAKE) fclean -C libft
 	@$(MAKE) clean
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_BONUS)
 	@echo "🫧🧽Tout est clean !!🧽🫧"
 
 re : fclean all 

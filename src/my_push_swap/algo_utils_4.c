@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:32:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/05 10:09:53 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:19:10 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 t_list	*node_to_push(t_list *stack_b)
 {

@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:37:51 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/06 13:07:27 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:19:50 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	main(int ac, char **av)
 {

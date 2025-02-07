@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:35:05 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/04 13:30:26 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:19:06 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	set_rot(t_list **stack, t_list *stack_b)
 {

@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:42:18 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 11:05:47 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:16 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../checker.h"
 
 void	exec_instr(t_list **stack, char *instr)
 {
@@ -48,6 +48,7 @@ void	exec_push(t_list **stack, char *instr)
 	if (instr[1] == 'b')
 		push(stack, 'b');
 }
+
 void	exec_rotate(t_list **stack, char *instr)
 {
 	if (ft_strlen(instr) != 3)

@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:22:59 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/30 09:48:08 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:17:57 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	check_sort(t_list *stack)
 {

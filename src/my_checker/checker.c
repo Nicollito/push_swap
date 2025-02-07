@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:50:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 11:22:05 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:08 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../checker.h"
 
 int	main(int ac, char **av)
 {

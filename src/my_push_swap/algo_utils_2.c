@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:06:06 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/05 10:40:49 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:19:02 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	calc_stat(t_stat *stat, t_list *stack)
 {

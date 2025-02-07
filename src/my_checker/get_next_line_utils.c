@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:18:19 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 10:36:48 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:26 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../get_next_line.h"
 
 char	*ft_strcpy_until(char *dest, char *src, char delim)
 {
@@ -57,7 +57,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 		return (NULL);
 	if (!s2)
 		return (NULL);
-	res = malloc(sizeof(char) *(ft_strlen_until(s1, '\0') + ft_strlen_until(s2, '\0')) + 1);
+	res = malloc(sizeof(char) *(ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!res)
 		return (NULL);
 	while (s1[i])

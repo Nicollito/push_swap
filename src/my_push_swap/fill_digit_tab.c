@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/06 12:54:56 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:19:36 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	count_number(char *str)
 {

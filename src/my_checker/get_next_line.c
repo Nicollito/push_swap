@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:17:53 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 10:36:57 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:30 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../get_next_line.h"
 
 int	check_line(char *s)
 {
