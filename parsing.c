@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:08:48 by nimadela          #+#    #+#             */
-/*   Updated: 2025/01/28 11:13:01 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:54:35 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_if_isdigit(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] != ' ' && str[i] <= 11 && str[i] >= 0 && str[i] != '-'
+		if (str[i] != ' ' && (str[i] >= 11 || str[i] <= 0) && str[i] != '-'
 			&& str[i] != '+' && !ft_isdigit(str[i]))
 			return (0);
 		i++;

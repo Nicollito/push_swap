@@ -3,12 +3,10 @@
 MAKEFLAGS += --no-print-directory
 
 NAME = push_swap
-
 CC = cc
-
 CFLAGS = -Werror -Wextra -Wall -g
-
 HEADER = push_swap.h
+LIB = libft/libft.a
 
 SRCS =	push_swap.c\
 		sort_instructions.c\
@@ -22,14 +20,32 @@ SRCS =	push_swap.c\
 		algorithm.c\
 		big_algo.c\
 		parsing.c\
-		all_free.c\
-		utils.c\
+		all_free.c
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+OBJ_DIR_PS = obj/push_swap
+OBJS = $(addprefix $(OBJ_DIR_PS)/, $(SRCS:.c=.o))
 
-OBJ_DIR = obj
+#Début des variables bonus
 
-LIB = libft/libft.a
+NAME_BONUS = checker
+HEADER_BONUS = checker.h
+
+SRCS_BONUS = 	checker.c\
+				create_stack.c\
+				fill_digit_tab.c\
+				get_next_line.c\
+				get_next_line_utils.c\
+				sort_instructions.c\
+				sort_instructions_2.c\
+				exec_instr.c\
+				all_free.c\
+				algo_utils.c\
+				parsing.c
+
+OBJ_DIR_CH = obj/checker
+OBJS_BONUS = $(addprefix $(OBJ_DIR_CH)/, $(SRCS_BONUS:.c=.o))
+
+#Fin des variables bonus
 
 all : $(LIB) check-libft check-build
 
@@ -52,20 +68,41 @@ check-libft:
 		$(MAKE) call-libft; \
 	fi
 
-real-all : $(LIB) $(OBJ_DIR) $(NAME)
+real-all : $(LIB) $(OBJ_DIR_PS) $(NAME)
 
-$(OBJ_DIR) :
+$(OBJ_DIR_PS) :
 	@mkdir -p $@
 
-$(OBJ_DIR)/%.o : %.c $(HEADER) | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@ -include $(HEADER)
+$(OBJS) : $(OBJ_DIR_PS)/%.o : %.c $(HEADER) | $(OBJ_DIR_PS) Makefile
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS) $(LIB)
+$(NAME) : $(OBJS) $(LIB) 
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)
-	@echo "🎊🥳 Programme compilé 🥳🎊"                                                                                                                   
+	@echo "🎊🥳 Programme push_swap compilé 🥳🎊"                                                                                                                   
 
 $(LIB) :
 	@$(MAKE) call-libft
+
+#Début des règles bonus
+
+bonus : $(OBJ_DIR_CH) $(LIB)
+	@if [ -f $(NAME_BONUS) ] && [ -z "$$(find $(OBJ_DIR_CH) -type f -newer $(NAME_BONUS))" ] && [ -z "$$(find libft -name "*.c" -newer $(LIB))" ]; then \
+		echo "🕵️ Checker déjà compilé et à jour ! 🕵️"; \
+	else \
+		$(MAKE) $(NAME_BONUS); \
+	fi
+
+$(OBJ_DIR_CH) :
+	@mkdir -p $@
+
+$(OBJS_BONUS) : $(OBJ_DIR_CH)/%.o : %.c $(HEADER) | $(OBJ_DIR_CH)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME_BONUS) : $(OBJS_BONUS) $(LIB)
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIB)
+	@echo "🎊🥳 Programme checker compilé 🥳🎊"
+
+#Fin des règles bonus
 
 call-libft : 
 	@echo "🎶📳 Appel libft 📳🎶"
@@ -73,7 +110,7 @@ call-libft :
 	@touch $(LIB)
 
 clean : 
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR_PS) $(OBJ_DIR_CH)
 	@echo "💨🧹 Nettoyage objets 🧹💨"
 
 fclean : 

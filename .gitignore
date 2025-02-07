@@ -1,5 +1,6 @@
 # Ignorer des fichiers spécifiques
 checker_linux
+checker
 push_swap
 libft.a
 tmp.h
