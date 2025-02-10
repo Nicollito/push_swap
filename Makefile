@@ -30,20 +30,20 @@ OBJS = $(SRCS:$(SRCS_DIR_PS)/%.c=$(OBJ_DIR_PS)/%.o)
 #Début des variables bonus
 
 NAME_BONUS = checker
-HEADER_BONUS = checker.h
+HEADER_BONUS = checker_bonus.h
 
 SRCS_DIR_CH	= src/my_checker
-SRCS_BONUS = 	$(SRCS_DIR_CH)/checker.c\
-				$(SRCS_DIR_CH)/exec_instr.c\
+SRCS_BONUS = 	$(SRCS_DIR_CH)/checker_bonus.c\
+				$(SRCS_DIR_CH)/exec_instr_bonus.c\
 				$(SRCS_DIR_CH)/get_next_line.c\
 				$(SRCS_DIR_CH)/get_next_line_utils.c\
-				$(SRCS_DIR_CH)/create_stack.c\
-				$(SRCS_DIR_CH)/fill_digit_tab.c\
-				$(SRCS_DIR_CH)/sort_instructions.c\
-				$(SRCS_DIR_CH)/sort_instructions_2.c\
-				$(SRCS_DIR_CH)/all_free.c\
-				$(SRCS_DIR_CH)/algo_utils.c\
-				$(SRCS_DIR_CH)/parsing.c
+				$(SRCS_DIR_CH)/create_stack_bonus.c\
+				$(SRCS_DIR_CH)/fill_digit_tab_bonus.c\
+				$(SRCS_DIR_CH)/sort_instructions_bonus.c\
+				$(SRCS_DIR_CH)/sort_instructions_2_bonus.c\
+				$(SRCS_DIR_CH)/all_free_bonus.c\
+				$(SRCS_DIR_CH)/algo_utils_bonus.c\
+				$(SRCS_DIR_CH)/parsing_bonus.c
 
 OBJ_DIR_CH = obj/checker
 OBJS_BONUS = 	$(SRCS_BONUS:$(SRCS_DIR_CH)/%.c=$(OBJ_DIR_CH)/%.o)
