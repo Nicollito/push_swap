@@ -55,7 +55,9 @@ all : $(LIB) check-libft check-build
 check-build : $(OBJS) $(LIB)
 	@need_rebuild=0; \
 	for file in $^; do \
-		if [ ! -f $(NAME) ] || [ $(NAME) -ot $$file ] || [ -n "$$(find libft -name "*.c" -newer $(LIB))" ]; then \
+		if [ ! -f $(NAME) ] \
+			|| [ $(NAME) -ot $$file ] \
+			|| [ -n "$$(find libft -name "*.c" -newer $(LIB))" ]; then \
 			need_rebuild=1; \
 			break; \
 		fi; \
@@ -76,7 +78,7 @@ real-all : $(LIB) $(OBJ_DIR_PS) $(NAME)
 $(OBJ_DIR_PS) :
 	@mkdir -p $@
 
-$(OBJS) : $(OBJ_DIR_PS)/%.o : $(SRCS_DIR_PS)/%.c $(HEADER) | $(OBJ_DIR_PS) Makefile
+$(OBJS) : $(OBJ_DIR_PS)/%.o : $(SRCS_DIR_PS)/%.c $(HEADER) Makefile | $(OBJ_DIR_PS) Makefile
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS) $(LIB) 
@@ -88,8 +90,12 @@ $(LIB) :
 
 #Début des règles bonus
 
-bonus : $(OBJ_DIR_CH) $(LIB)
-	@if [ -f $(NAME_BONUS) ] && [ -z "$$(find $(OBJ_DIR_CH) -type f -newer $(NAME_BONUS))" ] && [ -z "$$(find libft -name "*.c" -newer $(LIB))" ]; then \
+bonus : $(LIB) check-libft
+	@if [ -f $(NAME_BONUS) ] \
+		&& [ -z "$$(find $(OBJ_DIR_CH) -type f -newer $(NAME_BONUS))" ] \
+		&& [ -z "$$(find libft -name "*.c" -newer $(LIB))" ] \
+		&& [ -z "$$(find $(SRCS_DIR_CH) -name "*.c" -newer $(NAME_BONUS))" ] \
+		&& [ -z "$$(find . -name $(HEADER_BONUS) -newer $(NAME_BONUS))" ]; then \
 		echo "🕵️ Checker déjà compilé et à jour ! 🕵️"; \
 	else \
 		$(MAKE) $(NAME_BONUS); \
@@ -98,7 +104,7 @@ bonus : $(OBJ_DIR_CH) $(LIB)
 $(OBJ_DIR_CH) :
 	@mkdir -p $@
 
-$(OBJS_BONUS) : $(OBJ_DIR_CH)/%.o : $(SRCS_DIR_CH)/%.c $(HEADER) | $(OBJ_DIR_CH)
+$(OBJS_BONUS) : $(OBJ_DIR_CH)/%.o : $(SRCS_DIR_CH)/%.c $(HEADER_BONUS) Makefile | $(OBJ_DIR_CH)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME_BONUS) : $(OBJS_BONUS) $(LIB)

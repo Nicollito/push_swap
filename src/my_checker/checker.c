@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:50:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 15:18:08 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:00:58 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int	main(int ac, char **av)
 		return (0);
 	stack = create_and_fill_stack(stack, ac, av);
 	read_and_exec_instr(stack);
-	if (!check_sort(stack[0]))
+	if (!check_sort(stack[0]) || stack[1])
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
+	free_stack(stack);
+	return (0);
 }
 
 void	read_and_exec_instr(t_list **stack)
@@ -40,4 +42,5 @@ void	read_and_exec_instr(t_list **stack)
 		free(instr);
 		instr = get_next_line(0);
 	}
+	free(instr);
 }

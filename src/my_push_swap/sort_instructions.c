@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:31:35 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 15:20:01 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:40:29 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*swap(t_list **stack, char which)
 	current = stack[0];
 	if (which == 'b')
 		current = stack[1];
+	if (!current || !current->next)
+		return (NULL);
 	next = current->next;
 	tmp = current->content;
 	current->content = next->content;
