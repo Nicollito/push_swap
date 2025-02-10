@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 10:46:44 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:42:14 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	fill_rrb(t_list **stack, t_list *stack_b);
 // algo_utils_4.c
 t_list	*node_to_push(t_list *stack_b);
 void	all_rr_and_rrr_actions(t_list **stack, t_list *to_push);
+int	count_rr_and_rrr(int a, int b);
 
 // algorithm.c
 void	sort_3_nbr(t_list **stack);
