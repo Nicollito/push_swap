@@ -6,7 +6,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall
 
 HEADER = libft.h
 

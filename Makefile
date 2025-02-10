@@ -4,7 +4,7 @@ MAKEFLAGS += --no-print-directory
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall
 HEADER = push_swap.h
 LIB = libft/libft.a
 

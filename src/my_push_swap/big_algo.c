@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:44:04 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 15:19:28 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:04:09 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ void	sort_to_b(t_list **stack, t_stat *stat)
 		write(1, rotate(stack, 'a'), 3);
 	if (!verif_quart(stat, stack[0]))
 	{
-		if (stack[0]->content < stat->quart1)
+		if (stack[0]->content < stat->quart1 && stack[0] != found_max(stack[0]))
 		{
 			write(1, push(stack, 'b'), 3);
 			write(1, rotate(stack, 'b'), 3);
 		}
-		else
+		else if (stack[0]->content > stat->quart3
+			&& stack[0] != found_max(stack[0]))
 			write(1, push(stack, 'b'), 3);
 	}
 }
