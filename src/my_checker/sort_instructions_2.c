@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:42:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 15:18:37 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:28:30 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*rotate(t_list **stack, char which)
 	current = stack[0];
 	if (which == 'b')
 		current = stack[1];
+	if (!current || !current->next)
+		return (NULL);
 	start = current->next;
 	last = current;
 	while (current->next)
@@ -52,6 +54,8 @@ char	*reverse_rotate(t_list **stack, char which)
 	current = stack[0];
 	if (which == 'b')
 		current = stack[1];
+	if (!current || !current->next)
+		return (NULL);
 	start = current;
 	s_next = current->next;
 	while (current->next && s_next->next)

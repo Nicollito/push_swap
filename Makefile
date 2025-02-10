@@ -34,19 +34,19 @@ HEADER_BONUS = checker.h
 
 SRCS_DIR_CH	= src/my_checker
 SRCS_BONUS = 	$(SRCS_DIR_CH)/checker.c\
-				$(SRCS_DIR_CH)/create_stack.c\
-				$(SRCS_DIR_CH)/fill_digit_tab.c\
+				$(SRCS_DIR_CH)/exec_instr.c\
 				$(SRCS_DIR_CH)/get_next_line.c\
 				$(SRCS_DIR_CH)/get_next_line_utils.c\
+				$(SRCS_DIR_CH)/create_stack.c\
+				$(SRCS_DIR_CH)/fill_digit_tab.c\
 				$(SRCS_DIR_CH)/sort_instructions.c\
 				$(SRCS_DIR_CH)/sort_instructions_2.c\
-				$(SRCS_DIR_CH)/exec_instr.c\
 				$(SRCS_DIR_CH)/all_free.c\
 				$(SRCS_DIR_CH)/algo_utils.c\
 				$(SRCS_DIR_CH)/parsing.c
 
 OBJ_DIR_CH = obj/checker
-OBJS_BONUS = $(SRCS_BONUS:$(SRCS_DIR_CH)/%.c=$(OBJ_DIR_CH)/%.o)
+OBJS_BONUS = 	$(SRCS_BONUS:$(SRCS_DIR_CH)/%.c=$(OBJ_DIR_CH)/%.o)
 
 #Fin des variables bonus
 
