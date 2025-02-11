@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:39:22 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/05 13:40:11 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/11 11:24:19 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct rotate
 typedef struct s_list
 {
 	int				content;
+	int				sort;
 	struct s_list	*next;
 	t_rt			rot;
 }					t_list;

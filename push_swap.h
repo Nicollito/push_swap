@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 15:42:14 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:23:22 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	switch_to_b(t_list **stack);
 void	calc_stat(t_stat *stat, t_list *stack);
 int		verif_quart(t_stat *stat, t_list *stack);
 int		count_rotate_a(t_list *stack_a, t_list *stack_b);
-void	push_max_b_to_a(t_list **stack, t_list *stack_b);
 int		found_node_place(t_list *stack, t_list *to_find);
 
 // algo_utils_3.c
@@ -46,7 +45,7 @@ void	fill_rrb(t_list **stack, t_list *stack_b);
 // algo_utils_4.c
 t_list	*node_to_push(t_list *stack_b);
 void	all_rr_and_rrr_actions(t_list **stack, t_list *to_push);
-int	count_rr_and_rrr(int a, int b);
+int		count_rr_and_rrr(int a, int b);
 
 // algorithm.c
 void	sort_3_nbr(t_list **stack);
@@ -65,8 +64,8 @@ void	set_a(t_list **stack);
 
 // create_stack.c
 t_list	*create_node(int number);
-void	fill_stack(t_list **stack, int *digit_array, int len);
 t_list	**create_and_fill_stack(t_list **stack, int ac, char **av);
+void	fill_stack(t_list **stack, int *digit_array, int len);
 int		stack_len(t_list *stack);
 
 // fill_digit_tab.c
