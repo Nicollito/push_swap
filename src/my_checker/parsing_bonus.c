@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:08:48 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 12:43:41 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:04:26 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../checker_bonus.h"
 
 int	check_if_isdigit(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:31:35 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 12:43:49 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:04:39 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../checker_bonus.h"
 
 char	*swap(t_list **stack, char which)
 {
