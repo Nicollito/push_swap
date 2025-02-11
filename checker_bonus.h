@@ -6,12 +6,12 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:32:33 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 10:22:23 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:12:49 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "push_swap.h"
 # include "get_next_line.h"
