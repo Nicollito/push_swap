@@ -21,23 +21,23 @@ void	sort_3_nbr(t_list **stack)
 	cmp3 = ((stack[0]->next)->next)->content;
 	if (stack[0]->content < cmp2 && stack[0]->content < cmp3 && cmp3 < cmp2)
 	{
-		write(1, reverse_rotate(stack, 'a'), 4);
-		write(1, swap(stack, 'a'), 3);
+		print_instr(reverse_rotate(stack, 'a'));
+		print_instr(swap(stack, 'a'));
 	}
 	else if (stack[0]->content < cmp2 || stack[0]->content < cmp3)
 	{
 		if (stack[0]->content < cmp2)
-			write(1, reverse_rotate(stack, 'a'), 4);
+			print_instr(reverse_rotate(stack, 'a'));
 		else
-			write(1, swap(stack, 'a'), 3);
+			print_instr(swap(stack, 'a'));
 	}
 	else if (cmp2 > cmp3)
 	{
-		write(1, rotate(stack, 'a'), 3);
-		write(1, swap(stack, 'a'), 3);
+		print_instr(rotate(stack, 'a'));
+		print_instr(swap(stack, 'a'));
 	}
 	else if (cmp2 < cmp3)
-		write(1, rotate(stack, 'a'), 3);
+		print_instr(rotate(stack, 'a'));
 }
 
 void	sort_4_and_5(t_list **stack)
@@ -50,7 +50,7 @@ void	sort_4_and_5(t_list **stack)
 	if (!check_sort(stack[0]))
 		sort_3_nbr(stack);
 	if (stack[1]->next && stack[1]->content < (stack[1]->next)->content)
-		write(1, swap(stack, 'b'), 3);
+		print_instr(swap(stack, 'b'));
 	while (stack[1])
-		write(1, push(stack, 'a'), 3);
+		print_instr(push(stack, 'a'));
 }

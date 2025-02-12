@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:31:35 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 10:40:29 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:43:05 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,11 @@ char	*push(t_list **stack, char which)
 	stack[1] = tmp;
 	stack[0] = dest;
 	return ("pb\n");
+}
+
+void	print_instr(char *instr)
+{
+	if (!instr)
+		return ;
+	write(1, instr, ft_strlen(instr));
 }

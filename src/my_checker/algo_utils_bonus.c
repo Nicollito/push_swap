@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:22:59 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 10:03:38 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:44:06 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ void	switch_to_b(t_list **stack)
 	if (found_worth(stack[0], min))
 	{
 		while (stack[0] != min)
-			write(1, reverse_rotate(stack, 'a'), 4);
+			print_instr(reverse_rotate(stack, 'a'));
 	}
 	else
 	{
 		while (stack[0] != min)
-			write(1, rotate(stack, 'a'), 3);
+			print_instr(rotate(stack, 'a'));
 	}
-	write(1, push(stack, 'b'), 3);
+	print_instr(push(stack, 'b'));
 }

@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:44:04 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 13:56:43 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:55:24 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ void	sort_to_b(t_list **stack, t_stat *stat)
 {
 	if (stack[0]->content >= stat->quart1 && stack[0]->content < stat->mean)
 	{
-		write(1, push(stack, 'b'), 3);
+		print_instr(push(stack, 'b'));
 		if (stack[1]->next)
-			write(1, rotate(stack, 'b'), 3);
+			print_instr(rotate(stack, 'b'));
 	}
 	else if (stack[0]->content >= stat->mean
 		&& stack[0]->content <= stat->quart3)
-		write(1, push(stack, 'b'), 3);
+		print_instr(push(stack, 'b'));
 	else
-		write(1, rotate(stack, 'a'), 3);
+		print_instr(rotate(stack, 'a'));
 	if (!verif_quart(stat, stack[0]))
 	{
 		if (stack[0]->content < stat->quart1)
 		{
-			write(1, push(stack, 'b'), 3);
-			write(1, rotate(stack, 'b'), 3);
+			print_instr(push(stack, 'b'));
+			print_instr(rotate(stack, 'b'));
 		}
 		else if (stack[0]->content > stat->quart3)
-			write(1, push(stack, 'b'), 3);
+			print_instr(push(stack, 'b'));
 	}
 }
 
@@ -46,7 +46,7 @@ void	sort_to_a(t_list **stack)
 	all_rr_and_rrr_actions(stack, to_push);
 	set_b_to_push(stack, to_push);
 	push_to_a(stack);
-	write(1, push(stack, 'a'), 3);
+	print_instr(push(stack, 'a'));
 }
 
 void	push_to_a(t_list **stack)
@@ -66,9 +66,9 @@ void	push_to_a(t_list **stack)
 	while (nb_rot)
 	{
 		if (!reverse)
-			write(1, rotate(stack, 'a'), 3);
+			print_instr(rotate(stack, 'a'));
 		else
-			write(1, reverse_rotate(stack, 'a'), 4);
+			print_instr(reverse_rotate(stack, 'a'));
 		nb_rot--;
 	}
 }
@@ -90,9 +90,9 @@ void	set_b_to_push(t_list **stack, t_list *to_push)
 	while (nb_rot)
 	{
 		if (!reverse)
-			write(1, rotate(stack, 'b'), 3);
+			print_instr(rotate(stack, 'b'));
 		else
-			write(1, reverse_rotate(stack, 'b'), 4);
+			print_instr(reverse_rotate(stack, 'b'));
 		nb_rot--;
 	}
 }
@@ -114,14 +114,14 @@ void	set_a(t_list **stack)
 	{
 		if (place_max > 0)
 		{
-			write(1, rotate(stack, 'a'), 3);
+			print_instr(rotate(stack, 'a'));
 			place_max--;
 		}
 		else
 		{
-			write(1, reverse_rotate(stack, 'a'), 4);
+			print_instr(reverse_rotate(stack, 'a'));
 			place_max++;
 		}
 	}
-	write(1, rotate(stack, 'a'), 3);
+	print_instr(rotate(stack, 'a'));
 }

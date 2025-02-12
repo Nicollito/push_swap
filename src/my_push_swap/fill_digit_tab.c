@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/07 15:19:36 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:43:27 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,23 @@ char	*fill_str(int ac, char **av, char *str)
 		write(2, "Error\n", 6);
 		exit(free_all(str, NULL, NULL, NULL));
 	}
+	check_sign(str);
 	return (str);
+}
+
+void	check_sign(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i + 1])
+	{
+		if ((str[i] == '-' || str[i] == '+') && (str[i + 1] == '-'
+				|| str[i + 1] == '+'))
+		{
+			write(2, "Error\n", 6);
+			exit(free_all(str, NULL, NULL, NULL));
+		}
+		i++;
+	}
 }

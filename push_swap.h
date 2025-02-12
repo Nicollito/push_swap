@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:06:55 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 14:23:22 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:35:37 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		stack_len(t_list *stack);
 int		count_number(char *str);
 int		*fill_digit_array(char *str, int *digit_array, int len);
 char	*fill_str(int ac, char **av, char *str);
+void	check_sign(char *str);
 
 // parsing.c
 int		check_if_isdigit(char *str);
@@ -84,6 +85,7 @@ void	big_sort(t_list **stack);
 char	*swap(t_list **stack, char which);
 char	*ss(t_list **stack);
 char	*push(t_list **stack, char which);
+void	print_instr(char *instr);
 
 // sort_instructions_2.c
 char	*rotate(t_list **stack, char which);

@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:32:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 14:16:00 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:45:22 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	all_rr_and_rrr_actions(t_list **stack, t_list *to_push)
 		{
 			to_push->rot.ra--;
 			to_push->rot.rb--;
-			write(1, rr(stack), 3);
+			print_instr(rr(stack));
 		}
 	}
 	else if (to_push->rot.rra != -1 && to_push->rot.rrb != -1)
@@ -56,7 +56,7 @@ void	all_rr_and_rrr_actions(t_list **stack, t_list *to_push)
 		{
 			to_push->rot.rra--;
 			to_push->rot.rrb--;
-			write(1, rrr(stack), 4);
+			print_instr(rrr(stack));
 		}
 	}
 }
