@@ -44,12 +44,13 @@ void	sort_4_and_5(t_list **stack)
 {
 	if (stack_len(stack[0]) == 3)
 		sort_3_nbr(stack);
-	switch_to_b(stack);
+	else
+		switch_to_b(stack);
 	if (stack_len(stack[0]) == 4 && !check_sort(stack[0]))
 		switch_to_b(stack);
 	if (!check_sort(stack[0]))
 		sort_3_nbr(stack);
-	if (stack[1]->next && stack[1]->content < (stack[1]->next)->content)
+	if (stack[1] && stack[1]->next && stack[1]->content < (stack[1]->next)->content)
 		print_instr(swap(stack, 'b'));
 	while (stack[1])
 		print_instr(push(stack, 'a'));

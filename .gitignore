@@ -6,6 +6,10 @@ libft.a
 tmp.h
 utils.c
 test.txt
+push_swap_test_linux.sh
+traces.txt
+0
+valgrind_retrun
 
 # Ignorer tous les ficher objet
 obj/
@@ -13,3 +17,4 @@ obj/
 # Ignore les testeurs
 visu/
 complexity/
+Tester-Push-Swap/
