@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:32:26 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/12 10:45:22 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:56:23 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ int	count_rr_and_rrr(int a, int b)
 	res = (a + b - diff) / 2;
 	res = res + diff;
 	return (res);
+}
+
+int	nbr_in_quart(t_list *stack, int	sort)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->sort == sort)
+			i++;
+		stack = stack->next;
+	}
+	return (i);
 }

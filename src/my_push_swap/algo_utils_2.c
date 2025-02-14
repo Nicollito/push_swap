@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:06:06 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 14:51:30 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:36:47 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 void	calc_stat(t_stat *stat, t_list *stack)
 {
-	stat->mean = found_max(stack)->content * 0.5;
-	stat->quart1 = found_max(stack)->content * 0.25;
-	stat->quart3 = found_max(stack)->content * 0.75;
+	int	max;
+	int	min;
+	int	diff;
+
+	max = found_max(stack)->content;
+	min = found_min(stack)->content;
+	diff = max - min;
+	stat->mean = min + (diff / 2);
+	stat->quart1 = min + (diff / 4);
+	stat->quart3 = min +((3 * diff) / 4);
 	while (stack)
 	{
 		if (stack->content < stat->quart1)

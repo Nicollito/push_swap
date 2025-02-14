@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:32 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 10:04:14 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:20:56 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	*fill_digit_array(char *str, int *digit_array, int len)
 	digit_array = malloc(sizeof(int) * len);
 	if (!digit_array)
 		exit(free_all(str, NULL, NULL, NULL));
-	while (str[i])
+	while (str[i] && len--)
 	{
 		checker = ft_atoi(&str[i]);
 		if (checker > INT_MAX || checker < INT_MIN)
@@ -89,5 +89,6 @@ char	*fill_str(int ac, char **av, char *str)
 		write(2, "Error\n", 6);
 		exit(free_all(str, NULL, NULL, NULL));
 	}
+	check_str(str);
 	return (str);
 }

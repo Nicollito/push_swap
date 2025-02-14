@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:50:14 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/10 12:43:03 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:45:29 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 	stack = NULL;
 	if (ac == 1)
 		return (0);
+	if (ac == 2 && !ft_strlen(av[1]))
+		return (write(2, "Error\n", 6));
 	stack = create_and_fill_stack(stack, ac, av);
 	read_and_exec_instr(stack);
 	if (!check_sort(stack[0]) || stack[1])

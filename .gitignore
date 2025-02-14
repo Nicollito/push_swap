@@ -9,7 +9,8 @@ test.txt
 push_swap_test_linux.sh
 traces.txt
 0
-valgrind_retrun
+valgrind_return
+imgui.ini
 
 # Ignorer tous les ficher objet
 obj/

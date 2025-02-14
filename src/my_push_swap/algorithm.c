@@ -50,7 +50,8 @@ void	sort_4_and_5(t_list **stack)
 		switch_to_b(stack);
 	if (!check_sort(stack[0]))
 		sort_3_nbr(stack);
-	if (stack[1] && stack[1]->next && stack[1]->content < (stack[1]->next)->content)
+	if (stack[1] && stack[1]->next && stack[1]->content
+		< (stack[1]->next)->content)
 		print_instr(swap(stack, 'b'));
 	while (stack[1])
 		print_instr(push(stack, 'a'));

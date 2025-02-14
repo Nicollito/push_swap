@@ -6,7 +6,7 @@
 /*   By: nimadela <nimadela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:08:48 by nimadela          #+#    #+#             */
-/*   Updated: 2025/02/11 10:04:26 by nimadela         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:22:11 by nimadela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,44 @@ void	same_in_digit(int *digit_array, int len)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	check_sign(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i++])
+	{
+		if (str[i] == ' ' && str[i + 1] == ' ')
+		{
+			write(2, "Error\n", 6);
+			exit(free_all(str, NULL, NULL, NULL));
+		}
+		if ((size_t)i + 1 <= ft_strlen(str))
+		{
+			if ((str[i] == '-' || str[i] == '+') && (str[i + 1] == '-'
+					||str[i +1] == '+' ||!str[i +1] || !ft_isdigit(str[i + 1])))
+			{
+				write(2, "Error\n", 6);
+				exit(free_all(str, NULL, NULL, NULL));
+			}
+			if (i > 0 && str[i - 1] != ' ' && (str[i] == '-' || str[i] == '+'))
+			{
+				write(2, "Error\n", 6);
+				exit(free_all(str, NULL, NULL, NULL));
+			}
+		}
+	}
+}
+
+void	check_str(char *str)
+{
+	check_sign(str);
+	if (ft_strlen(str) == 1 && !ft_isdigit(str[1]))
+	{
+		write(2, "Error\n", 6);
+		exit(free_all(str, NULL, NULL, NULL));
 	}
 }
